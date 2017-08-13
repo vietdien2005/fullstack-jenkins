@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/vietdien2005/fullstack-jenkins.svg?branch=master)](https://travis-ci.org/vietdien2005/fullstack-jenkins)
+
 # Fullstack Jenkins
 
 Simple Docker Jenkins Image for PHP 7.0, NodeJS projects & testing with Selenium Python
