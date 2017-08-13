@@ -13,7 +13,7 @@ RUN echo "deb-src http://security.debian.org jessie/updates main" >> /etc/apt/so
 
 # Basic tools
 RUN apt-get update && apt-get -y install sudo git ant ant-contrib doxygen sqlite3 wget vim python python-dev ca-certificates \
-    dialog gcc musl-dev libffi-dev python-pip zip unzip iputils-ping curl \
+    dialog gcc musl-dev libffi-dev python-pip zip unzip iputils-ping curl apt-transport-https \
     autoconf automake build-essential \
     libxslt1-dev re2c libxml2 libxml2-dev  \
     bison libbz2-dev libreadline-dev \
@@ -23,7 +23,7 @@ RUN apt-get update && apt-get -y install sudo git ant ant-contrib doxygen sqlite
     libicu-dev \
     libmhash2 libmhash-dev \
     libmcrypt4 libmcrypt-dev \
-    libpcre3-dev libpcre++-dev
+    libpcre3-dev libpcre++-dev libgconf-2-4
 
 # Install Php 7.0
 RUN apt-get update && apt-get -y install php7.0 php7.0-cli php7.0-cgi php7.0-common php7.0-curl php7.0-dba php7.0-dev \
@@ -48,17 +48,45 @@ RUN  mkdir -p /usr/bin \
 # Update Timezone. Hello, I'm from Ho Chi Minh, Vietnam
 RUN echo "Asia/Ho_Chi_Minh" > /etc/timezone && dpkg-reconfigure -f noninteractive tzdata
 
+# Install environment testing with selenium
+RUN pip install -U selenium virtualenv nose
+
+RUN CHROME_DRIVER_VERSION="curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE" && \
+	wget -N http://chromedriver.storage.googleapis.com/$CHROME_DRIVER_VERSION/chromedriver_linux64.zip -P ~/ && \
+	unzip ~/chromedriver_linux64.zip -d ~/ && \
+	rm ~/chromedriver_linux64.zip && \
+	mv -f ~/chromedriver /usr/local/bin/chromedriver && \
+	chmod +x /usr/local/bin/chromedriver
+
+RUN curl -s https://api.github.com/repos/mozilla/geckodriver/releases/latest \
+	| grep "browser_download_url.*linux64" | cut -d : -f 2,3 | tr -d \" | wget -qi - -O geckodriver.tar.gz && \
+	tar -xvzf geckodriver.tar.gz && \
+	rm -rf geckodriver.tar.gz && \
+	chmod +x geckodriver && mv geckodriver /usr/local/bin
+
+
+# Install NodeJS & Packages Global
+RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - && \
+	curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
+	echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
+	apt-get update
+
+RUN apt-get install nodejs && \
+	npm install -g n && \
+	n latest && \
+	apt-get install yarn && \
+	yarn global add mocha bower gulp webpack jscs standard webpack-dev-server
+
+
+# Tnstall plugin jenkins
+USER jenkins
+COPY plugins.txt /usr/share/jenkins/plugins.txt
+RUN /usr/local/bin/plugins.sh /usr/share/jenkins/plugins.txt
+
+# Clean packages 
 RUN apt-get -q clean -y \
 	&& apt-get -q autoclean -y \
 	&& apt-get -q autoremove -y \
 	&& rm -rf /var/lib/{apt,dpkg,cache,log}/ \
 	&& rm -rf /var/lib/apt/lists/*
-
-# Install environment testing with selenium
-RUN pip install -U selenium
-
-# install plugin jenkins
-USER jenkins
-COPY plugins.txt /usr/share/jenkins/plugins.txt
-RUN /usr/local/bin/plugins.sh /usr/share/jenkins/plugins.txt
 

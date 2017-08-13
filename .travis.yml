@@ -12,6 +12,9 @@ script:
 - docker images
 - docker-compose up -d
 - docker ps
+- ./tests/test_php.sh
+- ./tests/test_python.sh
+- ./tests/test_nodejs.sh
 after_success:
 - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
 - docker push vietdien2005/fullstack_jenkins

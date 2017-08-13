@@ -15,6 +15,28 @@ Simple Docker Jenkins Image for PHP 7.0, NodeJS projects & testing with Selenium
 - box from <https://github.com/box-project/box2/releases/download/2.5.2/box-2.5.2.phar>
 - phpbrew from <https://github.com/phpbrew/phpbrew/raw/master/phpbrew>
 
+## Included Python tools
+
+- selenium
+- nose
+- virtualenv
+
+## Web Drivers
+
+- chromedriver (Google Chrome)
+- geckodriver (Mozilla Firefox)
+
+## Included NodeJS tools
+
+- yarn
+- mocha
+- bower
+- gulp
+- webpack
+- jscs
+- standard
+- webpack-dev-server
+
 ## Support
 ### Get the list of plugins from an existing server:
 
