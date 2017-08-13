@@ -23,7 +23,7 @@ RUN apt-get update && apt-get -y install sudo git ant ant-contrib doxygen sqlite
     libicu-dev \
     libmhash2 libmhash-dev \
     libmcrypt4 libmcrypt-dev \
-    libpcre3-dev libpcre++-dev libgconf-2-4
+    libpcre3-dev libpcre++-dev libgconf-2-4 xvfb libxi6
 
 # Install Php 7.0
 RUN apt-get update && apt-get -y install php7.0 php7.0-cli php7.0-cgi php7.0-common php7.0-curl php7.0-dba php7.0-dev \
@@ -49,21 +49,8 @@ RUN  mkdir -p /usr/bin \
 RUN echo "Asia/Ho_Chi_Minh" > /etc/timezone && dpkg-reconfigure -f noninteractive tzdata
 
 # Install environment testing with selenium
-RUN pip install -U selenium virtualenv nose
-
-RUN CHROME_DRIVER_VERSION="curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE" && \
-	wget -N http://chromedriver.storage.googleapis.com/$CHROME_DRIVER_VERSION/chromedriver_linux64.zip -P ~/ && \
-	unzip ~/chromedriver_linux64.zip -d ~/ && \
-	rm ~/chromedriver_linux64.zip && \
-	mv -f ~/chromedriver /usr/local/bin/chromedriver && \
-	chmod +x /usr/local/bin/chromedriver
-
-RUN curl -s https://api.github.com/repos/mozilla/geckodriver/releases/latest \
-	| grep "browser_download_url.*linux64" | cut -d : -f 2,3 | tr -d \" | wget -qi - -O geckodriver.tar.gz && \
-	tar -xvzf geckodriver.tar.gz && \
-	rm -rf geckodriver.tar.gz && \
-	chmod +x geckodriver && mv geckodriver /usr/local/bin
-
+RUN pip install selenium==3.3.1 && \
+	pip install virtualenv nose
 
 # Install NodeJS & Packages Global
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - && \
@@ -77,16 +64,15 @@ RUN apt-get install nodejs && \
 	apt-get install yarn && \
 	yarn global add mocha bower gulp webpack jscs standard webpack-dev-server
 
-
-# Tnstall plugin jenkins
-USER jenkins
-COPY plugins.txt /usr/share/jenkins/plugins.txt
-RUN /usr/local/bin/plugins.sh /usr/share/jenkins/plugins.txt
-
 # Clean packages 
 RUN apt-get -q clean -y \
 	&& apt-get -q autoclean -y \
 	&& apt-get -q autoremove -y \
 	&& rm -rf /var/lib/{apt,dpkg,cache,log}/ \
 	&& rm -rf /var/lib/apt/lists/*
+
+# Tnstall plugin jenkins
+USER jenkins
+COPY plugins.txt /usr/share/jenkins/plugins.txt
+RUN /usr/local/bin/plugins.sh /usr/share/jenkins/plugins.txt
 

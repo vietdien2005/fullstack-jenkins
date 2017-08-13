@@ -4,10 +4,31 @@ services:
     jenkins:
         build: 
             context: ./jenkins
-        image: vietdien2005/php7_jenkins:latest
+        image: vietdien2005/fullstack_jenkins:latest
         volumes:
             - ./jenkins/home:/var/jenkins_home
         ports:
             - "8080:8080"
             - "50000:50000"
-        
+        depends_on:
+            - selenium-hub
+
+    selenium-hub:
+        image: selenium/hub:latest
+        ports:
+            - "4444:4444"
+
+    selenium-node-firefox:
+        image: selenium/node-firefox
+        links:
+            - selenium-hub:hub
+
+    selenium-node-chrome:
+        image: selenium/node-chrome
+        links:
+            - selenium-hub:hub
+
+    selenium-node-phantomjs:
+        image: selenium/node-phantomjs
+        links:
+            - selenium-hub:hub
