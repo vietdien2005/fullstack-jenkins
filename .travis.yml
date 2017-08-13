@@ -3,8 +3,6 @@ language: python
 dist: trusty
 services:
 - docker
-os:
-- linux
 before_script:
 - docker --version
 - docker-compose --version
