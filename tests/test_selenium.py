@@ -23,7 +23,7 @@ for driver_instance in desired_cap:
 	 
 	search_field.send_keys("Jenkins Selenium WebDriver")
 	search_field.submit()
-	 
+
 	lists= driver.find_elements_by_class_name("_Rm")
 	 
 	print ("Found " + str(len(lists)) + "searches:")
