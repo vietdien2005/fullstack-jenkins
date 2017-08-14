@@ -12,23 +12,59 @@ services:
             - "50000:50000"
         depends_on:
             - selenium-hub
+        networks:
+            - jenkins_network
 
     selenium-hub:
         image: selenium/hub:latest
         ports:
             - "4444:4444"
+        networks:
+            - jenkins_network
+        environment:    
+            GRID_TIMEOUT: 300
+            GRID_DEBUG: 'true'
 
     selenium-node-firefox:
-        image: selenium/node-firefox
-        links:
-            - selenium-hub:hub
+        image: selenium/node-firefox:latest
+        networks:
+            - jenkins_network
+        ports:
+            - 5900
+        environment:
+            HUB_PORT_4444_TCP_ADDR: selenium-hub
+            HUB_PORT_4444_TCP_PORT: 4444
+        depends_on:
+            - selenium-hub
 
     selenium-node-chrome:
-        image: selenium/node-chrome
-        links:
-            - selenium-hub:hub
+        image: selenium/node-chrome:latest
+        volumes:
+            - /dev/shm:/dev/shm
+        networks:
+            - jenkins_network
+        ports:
+            - 5900
+        environment:
+            HUB_PORT_4444_TCP_ADDR: selenium-hub
+            HUB_PORT_4444_TCP_PORT: 4444
+        depends_on:
+            - selenium-hub
 
     selenium-node-phantomjs:
-        image: selenium/node-phantomjs
-        links:
-            - selenium-hub:hub
+        image: selenium/node-phantomjs:latest
+        volumes:
+            - /dev/shm:/dev/shm
+        networks:
+            - jenkins_network
+        ports:
+            - 5900
+        environment:
+            HUB_PORT_4444_TCP_ADDR: selenium-hub
+            HUB_PORT_4444_TCP_PORT: 4444
+        depends_on:
+            - selenium-hub
+
+networks:
+    jenkins_network:
+        driver: bridge

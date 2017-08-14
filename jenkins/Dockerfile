@@ -49,18 +49,18 @@ RUN  mkdir -p /usr/bin \
 RUN echo "Asia/Ho_Chi_Minh" > /etc/timezone && dpkg-reconfigure -f noninteractive tzdata
 
 # Install environment testing with selenium
-RUN pip install selenium==3.3.1 && \
-	pip install virtualenv nose
+RUN pip install selenium virtualenv nose
 
 # Install NodeJS & Packages Global
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - && \
-	curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
-	echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
-	apt-get update
-
-RUN apt-get install nodejs && \
+	apt-get update && \
+	apt-get install nodejs && \
 	npm install -g n && \
-	n latest && \
+	n latest
+
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
+	echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
+	apt-get update && \
 	apt-get install yarn && \
 	yarn global add mocha bower gulp webpack jscs standard webpack-dev-server
 
