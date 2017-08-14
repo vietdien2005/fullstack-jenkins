@@ -6,11 +6,12 @@ services:
 before_script:
 - docker --version
 - docker-compose --version
+- pip install selenium==3.3.1
 script:
+- chmod -R 777 jenkins/home
 - docker-compose build
 - docker images
 - docker-compose up -d
-- docker-compose logs
 - docker ps
 - sleep 10
 - bash tests/test_php.sh
