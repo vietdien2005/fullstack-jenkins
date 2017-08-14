@@ -13,6 +13,9 @@ services:
             - selenium-hub
         networks:
             - jenkins_network
+        dns:
+            - 8.8.8.8
+            - 8.8.4.4
 
     selenium-hub:
         image: selenium/hub:3.3.1
