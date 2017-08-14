@@ -13,9 +13,10 @@ script:
 - sleep 20
 - docker ps
 - sleep 10
-- chmod +x ./tests/test_php.sh && bash tests/test_php.sh
-- chmod +x ./tests/test_python.sh && bash tests/test_python.sh
-- chmod +x ./tests/test_nodejs.sh && bash tests/test_nodejs.sh
+- bash tests/test_php.sh
+- bash tests/test_python.sh
+- bash tests/test_nodejs.sh
+- python tests/test_selenium.sh
 after_success:
 - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
 - docker push vietdien2005/fullstack_jenkins

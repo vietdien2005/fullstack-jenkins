@@ -49,7 +49,7 @@ RUN  mkdir -p /usr/bin \
 RUN echo "Asia/Ho_Chi_Minh" > /etc/timezone && dpkg-reconfigure -f noninteractive tzdata
 
 # Install environment testing with selenium
-RUN pip install selenium virtualenv nose
+RUN pip install selenium==3.3.1 virtualenv nose
 
 # Install NodeJS & Packages Global
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - && \

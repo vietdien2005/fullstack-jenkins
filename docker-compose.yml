@@ -9,28 +9,22 @@ services:
             - ./jenkins/home:/var/jenkins_home
         ports:
             - "8080:8080"
-            - "50000:50000"
         depends_on:
             - selenium-hub
         networks:
             - jenkins_network
 
     selenium-hub:
-        image: selenium/hub:latest
+        image: selenium/hub:3.3.1
         ports:
             - "4444:4444"
         networks:
             - jenkins_network
-        environment:    
-            GRID_TIMEOUT: 300
-            GRID_DEBUG: 'true'
 
     selenium-node-firefox:
-        image: selenium/node-firefox:latest
+        image: selenium/node-firefox:3.3.1
         networks:
             - jenkins_network
-        ports:
-            - 5900
         environment:
             HUB_PORT_4444_TCP_ADDR: selenium-hub
             HUB_PORT_4444_TCP_PORT: 4444
@@ -38,13 +32,11 @@ services:
             - selenium-hub
 
     selenium-node-chrome:
-        image: selenium/node-chrome:latest
+        image: selenium/node-chrome:3.3.1
         volumes:
             - /dev/shm:/dev/shm
         networks:
             - jenkins_network
-        ports:
-            - 5900
         environment:
             HUB_PORT_4444_TCP_ADDR: selenium-hub
             HUB_PORT_4444_TCP_PORT: 4444
@@ -52,13 +44,11 @@ services:
             - selenium-hub
 
     selenium-node-phantomjs:
-        image: selenium/node-phantomjs:latest
+        image: selenium/node-phantomjs:3.3.1
         volumes:
             - /dev/shm:/dev/shm
         networks:
             - jenkins_network
-        ports:
-            - 5900
         environment:
             HUB_PORT_4444_TCP_ADDR: selenium-hub
             HUB_PORT_4444_TCP_PORT: 4444
