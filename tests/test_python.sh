@@ -6,8 +6,6 @@ CMD=(
 	'pip show selenium'
 	'pip show virtualenv'
 	'pip show nose'
-	'geckodriver --version'
-	'chromedriver --version'
 )
 
 for i in "${CMD[@]}"

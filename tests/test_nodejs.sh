@@ -3,14 +3,13 @@
 CMD=(
 	'node -v'
 	'npm -v'
-	'yarn -v'
-	'mocha -v'
-	'bower -v'
-	'gulp -v'
-	'webpack -v'
-	'jscs -v'
-	'standard -v'
-	'webpack-dev-server -v'
+	'yarn --version'
+	'mocha --version'
+	'gulp --version'
+	'webpack --version'
+	'jscs --version'
+	'standard --version'
+	'webpack-dev-server --version'
 )
 
 for i in "${CMD[@]}"
