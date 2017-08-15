@@ -1,0 +1,5 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<org.codefirst.SimpleThemeDecorator plugin="simple-theme-plugin@0.3">
+  <cssUrl>https://cdn.rawgit.com/vietdien2005/07ea90ef63b429dfac0a87c44ceeeda1/raw/6a91d61d1ed29ad3c1b4d2e7d60e2d31d3167b61/jenkins-theme-material.css</cssUrl>
+  <jsUrl></jsUrl>
+</org.codefirst.SimpleThemeDecorator>

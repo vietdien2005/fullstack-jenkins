@@ -1,8 +1,25 @@
 [![Build Status](https://travis-ci.org/vietdien2005/fullstack-jenkins.svg?branch=master)](https://travis-ci.org/vietdien2005/fullstack-jenkins)
 
+![Demo Image](https://raw.githubusercontent.com/vietdien2005/fullstack-jenkins/master/demo.png)
+
 # Fullstack Jenkins
 
 Simple Docker Jenkins Image for PHP 7.0, NodeJS projects & testing with Selenium Python
+
+## Running
+
+Command:
+
+	docker-composer up -d
+
+And go to http://localhost:8080 and login with: 
+
+- Username: fullstack_jenkins
+- Password: fullstack_jenkins
+	
+## Theme Jenkins 
+
+- From [jenkins-material-theme](https://github.com/afonsof/jenkins-material-theme)
 
 ## Included PHP tools
 
@@ -27,17 +44,112 @@ Simple Docker Jenkins Image for PHP 7.0, NodeJS projects & testing with Selenium
 
 - chromedriver (Google Chrome)
 - geckodriver (Mozilla Firefox)
+- phantomjs (PhantomJS)
 
 ## Included NodeJS tools
 
 - yarn
 - mocha
-- bower
 - gulp
 - webpack
 - jscs
 - standard
 - webpack-dev-server
+
+## Plugins Jenkins
+
+- pipeline-stage-tags-metadata
+- structs
+- handlebars
+- junit
+- resource-disposer
+- pam-auth
+- durable-task
+- windows-slaves
+- antisamy-markup-formatter
+- github-branch-source
+- pipeline-model-extensions
+- javadoc
+- maven-plugin
+- mapdb-api
+- branch-api
+- pipeline-milestone-step
+- external-monitor-job
+- workflow-aggregator
+- analysis-core
+- matrix-project
+- workflow-cps
+- workflow-job
+- docker-commons
+- slack
+- build-timeout
+- script-security
+- mercurial
+- ant
+- publish-over-ssh
+- pipeline-github-lib
+- momentjs
+- workflow-api
+- plain-credentials
+- token-macro
+- workflow-support
+- bitbucket
+- github-api
+- credentials-binding
+- workflow-durable-task-step
+- ldap
+- workflow-basic-steps
+- ws-cleanup
+- jquery-detached
+- github
+- pipeline-input-step
+- ace-editor
+- pipeline-rest-api
+- git-client
+- git
+- pipeline-build-step
+- ssh
+- matrix-auth
+- scm-api
+- bouncycastle-api
+- git-server
+- gradle
+- workflow-scm-step
+- simple-theme-plugin
+- credentials
+- pipeline-stage-view
+- workflow-multibranch
+- workflow-step-api
+- jsch
+- timestamper
+- display-url-api
+- docker-workflow
+- ssh-credentials
+- ssh-slaves
+- mailer
+- icon-shim
+- pipeline-graph-analysis
+- thinBackup
+- email-ext
+- pipeline-model-declarative-agent
+- pipeline-model-definition
+- cloudbees-folder
+- jackson2-api
+- seleniumhq
+- pipeline-model-api
+- authentication-tokens
+- workflow-cps-global-lib
+- pipeline-stage-step
+- run-condition
+- conditional-buildstep
+- docker-build-publish
+- embeddable-build-status
+- gitlab-plugin
+- jobConfigHistory
+- monitoring
+- rebuild
+- role-strategy
+- saferestart
 
 ## Support
 ### Get the list of plugins from an existing server:

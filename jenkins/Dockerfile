@@ -71,8 +71,22 @@ RUN apt-get -q clean -y \
 	&& rm -rf /var/lib/{apt,dpkg,cache,log}/ \
 	&& rm -rf /var/lib/apt/lists/*
 
-# Tnstall plugin jenkins
+# Setup Jenkins
+COPY config/config.xml /usr/share/jenkins/ref/config.xml
+COPY config/jenkins.model.JenkinsLocationConfiguration.xml /usr/share/jenkins/ref/jenkins.model.JenkinsLocationConfiguration.xml
+COPY config/nodeMonitors.xml /usr/share/jenkins/ref/nodeMonitors.xml
+COPY config/org.codefirst.SimpleThemeDecorator.xml /usr/share/jenkins/ref/org.codefirst.SimpleThemeDecorator.xml
+COPY config/thinBackup.xml /usr/share/jenkins/ref/thinBackup.xml
+COPY config/users /usr/share/jenkins/ref/users
+
+# Tnstall plugin Jenkins
 USER jenkins
-COPY plugins.txt /usr/share/jenkins/plugins.txt
+COPY config/plugins.txt /usr/share/jenkins/plugins.txt
 RUN /usr/local/bin/plugins.sh /usr/share/jenkins/plugins.txt
 
+RUN echo 2.0 > /usr/share/jenkins/ref/jenkins.install.UpgradeWizard.state
+
+CMD java ${JVM_OPTS} \
+	-Djenkins.install.runSetupWizard=false \
+	-jar /usr/share/jenkins/jenkins.war \
+	${JENKINS_OPTS}
