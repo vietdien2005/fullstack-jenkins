@@ -6,11 +6,6 @@ ENV DEBIAN_FRONTEND noninteractive
 
 USER root
 
-# Add Basic Source List Debian Jessie
-RUN echo "deb-src http://httpredir.debian.org/debian jessie main" >> /etc/apt/sources.list
-RUN echo "deb-src http://httpredir.debian.org/debian jessie-updates main" >> /etc/apt/sources.list
-RUN echo "deb-src http://security.debian.org jessie/updates main" >> /etc/apt/sources.list
-
 # Basic tools
 RUN apt-get update && apt-get -y install sudo git ant ant-contrib doxygen sqlite3 wget vim python python-dev ca-certificates \
     dialog gcc musl-dev libffi-dev python-pip zip unzip iputils-ping curl apt-transport-https \
@@ -51,7 +46,7 @@ RUN echo "Asia/Ho_Chi_Minh" > /etc/timezone && dpkg-reconfigure -f noninteractiv
 # Install environment testing with selenium
 RUN pip install selenium==3.3.1 virtualenv nose
 
-# Install NodeJS & Packages Global
+# Install NodeJS, Yarn & Packages Global
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - && \
 	apt-get update && \
 	apt-get install nodejs && \
@@ -71,7 +66,7 @@ RUN apt-get -q clean -y \
 	&& rm -rf /var/lib/{apt,dpkg,cache,log}/ \
 	&& rm -rf /var/lib/apt/lists/*
 
-# Setup Jenkins
+# Setup Config Jenkins
 COPY config/config.xml /usr/share/jenkins/ref/config.xml
 COPY config/jenkins.model.JenkinsLocationConfiguration.xml /usr/share/jenkins/ref/jenkins.model.JenkinsLocationConfiguration.xml
 COPY config/nodeMonitors.xml /usr/share/jenkins/ref/nodeMonitors.xml
@@ -84,9 +79,5 @@ USER jenkins
 COPY config/plugins.txt /usr/share/jenkins/plugins.txt
 RUN /usr/local/bin/plugins.sh /usr/share/jenkins/plugins.txt
 
-RUN echo 2.0 > /usr/share/jenkins/ref/jenkins.install.UpgradeWizard.state
-
-CMD java ${JVM_OPTS} \
-	-Djenkins.install.runSetupWizard=false \
-	-jar /usr/share/jenkins/jenkins.war \
-	${JENKINS_OPTS}
+# Setup version Jenkins
+RUN echo $(java -jar /usr/share/jenkins/jenkins.war --version) > /usr/share/jenkins/ref/jenkins.install.UpgradeWizard.state
