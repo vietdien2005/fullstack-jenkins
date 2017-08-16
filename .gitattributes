@@ -1,0 +1,27 @@
+* text=auto
+*.*proj   text
+*.sln     text
+*.html    text diff=html
+*.cshtml  text diff=html
+*.css     text
+*.less    text
+*.js      text
+*.config  text
+*.targets text
+*.aspx    text
+*.asax    text
+*.xml     text
+*.xaml    text
+*.txt     text
+*.sql     text
+*.cmd     text
+*.md      text
+*.tt      text
+*.ps1     text
+*.py      text
+*.yaml    text
+*.yml     text
+*.rst     text
+*.sh      eol=lf
+*.conf    eol=lf
+Dockerfile  text
