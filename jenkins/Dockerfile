@@ -18,7 +18,8 @@ RUN apt-get update && apt-get -y install sudo git ant ant-contrib doxygen sqlite
     libicu-dev \
     libmhash2 libmhash-dev \
     libmcrypt4 libmcrypt-dev \
-    libpcre3-dev libpcre++-dev libgconf-2-4 xvfb libxi6
+    libpcre3-dev libpcre++-dev libgconf-2-4 xvfb libxi6 \
+    python-numpy python-scipy python-matplotlib python-pandas python-sympy python-nose python-html5lib
 
 # Install Php 7.0
 RUN apt-get update && apt-get -y install php7.0 php7.0-cli php7.0-cgi php7.0-common php7.0-curl php7.0-dba php7.0-dev \
@@ -44,7 +45,10 @@ RUN  mkdir -p /usr/bin \
 RUN echo "Asia/Ho_Chi_Minh" > /etc/timezone && dpkg-reconfigure -f noninteractive tzdata
 
 # Install environment testing with selenium
-RUN pip install selenium==3.3.1 virtualenv nose
+RUN pip install -U pip setuptools 
+RUN pip install selenium==3.3.1 virtualenv nose pymongo beautifulsoup4 pylint \
+	requests Scrapy numpy mechanize scrape matplotlib scipy ipython jupyter pandas \
+	sympy opencv-python html5lib
 
 # Install NodeJS, Yarn & Packages Global
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - && \
