@@ -24,14 +24,6 @@ after_success:
 notifications:
   slack:
     secure: rJrlnnlxParE8xPLtI13z6Ldtdt+ddLiEzEcIywce1nRZ8mCuWVrQwB9nGze5gFIDRYOf5BJgYMasW7PfrOvmcqwZQzOIDbQ98+hFq0GJUdBNMYACTXU8e+mPHw42SH81SQbVtl3YWX1Qtt15Msf0DyVMpl8efZ9qotP/DORWdghEsG6lMlQRhWIyQc/teCYzYM3xn9cBuvVCyuszKtCS1WtYBHfKEP0UjaUrrCbQfvtCXX0jYnAY0ZAnC7ITv7yt1OygVd/O98dAZm4StgylA46Nt1Kg3k2EKjrmhaPWgW05yyDQk72yjUG54IOJ1niU09dAt/E7MvJUwTeYXT0AB3gaYe/cGB9vbHRsygS220hplPLVOVDhFs3yJS4eDRLCHTr8YjPDNvB6ryJUA1WSHr1QTpKlbKp/zxLOxoztZU7xoXdWaQFFGmsNOXGEHYaDzVm1ySm3OxP1QhLV75F5pwh0V0VxekI51qCiNHQrYK3V/gqxcLflsGR8ks5yycQLOuU3XRzntyhXiZC/BDKpPtBBlTM49rsfuymQ/+HKLPb+iZOCyo0sSoJcTBftrkV9YI5cHqUDEl77HTrnHKTDTE3mOZcaMxHLc6ZZ2g8U9HCapRyfur/GjMp6Z+SxGsfxKWJVBgk9RzUMW4HSHLCwLu9EadfEkegfc71msrMVpk=
-    template:
-      - "Build <%{build_url}|#%{build_number}> (<%{compare_url}|%{commit}>) of %{repository}@%{branch} by %{author} %{result} in %{duration}"
-      - "GitHub repo: %{repository_slug}"
-      - "Name repo: %{repository_name}"
-      - "Commit message: %{commit_message}"
-      - "Commit Subject: %{commit_subject}"
-      - "Travis CI message: %{message}"
-      - "Time: %{elapsed_time}"
 env:
   global:
   - secure: wADVisfQCZWRpfhmZCofzupUUY3oQXHLtiOiPIm8ooPWUNbeRB/zmQ4VtDahcQqHtiMulUnV3O6K+3Spk0X7G6z+ll/RRa1xywDlw7T8dFCurrca7/c+5BGrGJ4TztqXpGmEcLiBLOYelhKxEZ608ZO8JfpYtNcxYoYCOgrDVhs7r0A2NycAC4v6h5GDRcy/YdTipFfPPlVle9jpRbNBav3lzvip1niBpqo0VQYB8XcEbxy45U8nPgLXbeRVE81kK+LXA6gyi97ga771TuKePRivSdq+du7LP/OXm0zONFMlBOW6wdwCNWZpDygYjKW4si/JDhPhImvkM3z1H07S2ZfXujllLUazJY8Pawa2wgF91nXDIt1EonHUCbHfXxd37WIJWWEaT3SqdPV+EAqXMHsLs1CAeJ5AK2ja0BK4yV+14mNhFfYEe1jmUNRT7jaZmbbkGvLB13yr+VLhVx06i1TkUTDsWfvD3jGKmng793jg7QdEHxiqcHQF7N/nbSZrwjE9XhX5C+oy9LlZG22Y/i9MporysLoXaE4jbzYjmgRHtDQMNBVsxy29EBbzwnlvS7lz+SnHEo7aIrc68tlwOutTmN4VKhs1OOZbBM82NwAitoyaq/Itxrq6qNeQTCUFs04iGPs6wi8AVQCayHiyBxB0rfUTvbahdoOUGhB1igA=
