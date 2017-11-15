@@ -79,10 +79,10 @@ COPY config/org.codefirst.SimpleThemeDecorator.xml /usr/share/jenkins/ref/org.co
 COPY config/thinBackup.xml /usr/share/jenkins/ref/thinBackup.xml
 COPY config/users /usr/share/jenkins/ref/users
 
-# Tnstall plugin Jenkins
+# Install plugin Jenkins
 USER jenkins
 COPY config/plugins.txt /usr/share/jenkins/plugins.txt
-RUN /usr/local/bin/plugins.sh /usr/share/jenkins/plugins.txt
+RUN /usr/local/bin/install-plugins.sh $(cat /usr/share/jenkins/plugins.txt | tr '\n' ' ')
 
 RUN echo 2.0 > /usr/share/jenkins/ref/jenkins.install.UpgradeWizard.state
 
