@@ -12,6 +12,8 @@ services:
             - "50000:50000"
         depends_on:
             - selenium-hub
+        environment:
+            JAVA_OPTS: -Djenkins.install.runSetupWizard=false
         networks:
             - jenkins_network
         dns:
