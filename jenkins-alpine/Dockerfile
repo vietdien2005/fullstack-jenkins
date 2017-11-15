@@ -1,0 +1,69 @@
+FROM jenkins:alpine
+
+MAINTAINER Dam Viet "vietdien2005@gmail.com"
+
+USER root
+
+# Basic tools
+RUN apk update
+
+RUN apk add --no-cache sudo git doxygen wget vim python python-dev ca-certificates \
+    dialog gcc musl-dev libffi-dev zip unzip curl autoconf automake re2c tzdata \
+    libxml2 libxml2-dev bison openssl gettext libmcrypt-dev xvfb python python-dev py-pip build-base
+
+# Install Php 7.0
+RUN apk add --no-cache php7 php7-cgi php7-common php7-curl php7-dba php7-dev php7-fpm php7-gd php7-gmp php7-imap php7-intl \
+	php7-json php7-mbstring php7-mcrypt php7-odbc php7-opcache php7-pgsql php7-pspell php7-sqlite3 php7-tidy php7-xml \
+	php7-xmlrpc php7-xsl php7-zip php7-phar php7-zlib php7-dom php7-ctype php7-iconv php7-pdo php7-pdo_mysql php7-pdo_sqlite \
+	php7-pdo_pgsql php7-session php7-openssl php7-sockets php7-posix php7-ldap
+
+
+# Install php tools
+RUN mkdir -p /usr/bin \
+	&& wget -q -O /usr/bin/phpunit https://phar.phpunit.de/phpunit.phar && chmod +x /usr/bin/phpunit \
+	&& wget -q -O /usr/bin/composer https://getcomposer.org/composer.phar && chmod +x /usr/bin/composer \
+	&& wget -q -O /usr/bin/phpmd http://static.phpmd.org/php/latest/phpmd.phar && chmod +x /usr/bin/phpmd \
+	&& wget -q -O /usr/bin/sami http://get.sensiolabs.org/sami.phar && chmod +x /usr/bin/sami \
+	&& wget -q -O /usr/bin/phpcov https://phar.phpunit.de/phpcov.phar && chmod +x /usr/bin/phpcov \
+	&& wget -q -O /usr/bin/phpcpd https://phar.phpunit.de/phpcpd.phar && chmod +x /usr/bin/phpcpd \
+	&& wget -q -O /usr/bin/phploc https://phar.phpunit.de/phploc.phar && chmod +x /usr/bin/phploc \
+	&& wget -q -O /usr/bin/phptok https://phar.phpunit.de/phptok.phar && chmod +x /usr/bin/phptok \
+	&& wget -q -O /usr/bin/phpdox https://github.com/theseer/phpdox/releases/download/0.10.1/phpdox-0.10.1.phar && chmod +x /usr/bin/phpdox \
+	&& wget -q -O /usr/bin/box https://github.com/box-project/box2/releases/download/2.7.5/box-2.7.5.phar && chmod +x /usr/bin/box \
+	&& wget -q -O /usr/bin/phpbrew https://github.com/phpbrew/phpbrew/raw/master/phpbrew && chmod +x /usr/bin/phpbrew
+
+# Update Timezone. Hello, I'm from Ho Chi Minh, Vietnam
+RUN cp /usr/share/zoneinfo/Asia/Ho_Chi_Minh /etc/localtime \
+	&& echo "Asia/Ho_Chi_Minh" > /etc/timezone \
+	&& apk del tzdata
+
+# Install environment testing with selenium
+RUN pip install selenium==3.3.1 virtualenv nose
+
+# Install NodeJS & Packages Global
+RUN apk add --no-cache nodejs && \
+	npm install -g n mocha gulp webpack jscs standard webpack-dev-server && \
+	n latest
+
+# Clean packages 
+RUN rm -rf /var/cache/apk/*
+
+# Setup Jenkins
+COPY ./config/config.xml /usr/share/jenkins/ref/config.xml
+COPY ./config/jenkins.model.JenkinsLocationConfiguration.xml /usr/share/jenkins/ref/jenkins.model.JenkinsLocationConfiguration.xml
+COPY ./config/nodeMonitors.xml /usr/share/jenkins/ref/nodeMonitors.xml
+COPY ./config/org.codefirst.SimpleThemeDecorator.xml /usr/share/jenkins/ref/org.codefirst.SimpleThemeDecorator.xml
+COPY ./config/thinBackup.xml /usr/share/jenkins/ref/thinBackup.xml
+COPY ./config/users /usr/share/jenkins/ref/users
+
+# Install plugin Jenkins
+USER jenkins
+COPY ./config/plugins.txt /usr/share/jenkins/plugins.txt
+RUN /usr/local/bin/install-plugins.sh $(cat /usr/share/jenkins/plugins.txt | tr '\n' ' ')
+
+RUN echo 2.0 > /usr/share/jenkins/ref/jenkins.install.UpgradeWizard.state
+
+CMD java ${JVM_OPTS} \
+	-Djenkins.install.runSetupWizard=false \
+	-jar /usr/share/jenkins/jenkins.war \
+	${JENKINS_OPTS}

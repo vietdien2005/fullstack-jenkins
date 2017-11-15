@@ -3,9 +3,7 @@ structs:latest
 handlebars:latest
 junit:latest
 resource-disposer:latest
-pam-auth:latest
 durable-task:latest
-windows-slaves:latest
 antisamy-markup-formatter:latest
 github-branch-source:latest
 pipeline-model-extensions:latest
@@ -21,7 +19,6 @@ matrix-project:latest
 workflow-cps:latest
 workflow-job:latest
 docker-commons:latest
-slack:latest
 build-timeout:latest
 script-security:latest
 mercurial:latest
@@ -86,7 +83,6 @@ docker-build-publish:latest
 embeddable-build-status:latest
 gitlab-plugin:latest
 jobConfigHistory:latest
-monitoring:latest
 rebuild:latest
 role-strategy:latest
 saferestart:latest

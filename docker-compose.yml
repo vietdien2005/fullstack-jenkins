@@ -3,12 +3,12 @@ version: '2'
 services:
     jenkins:
         build: 
-            context: ./jenkins
-        image: vietdien2005/fullstack_jenkins:latest
+            context: ./jenkins-alpine
+        image: vietdien2005/fullstack_jenkins_alpine_minimal:latest
         volumes:
-            - ./jenkins/home:/var/jenkins_home
+            - ./home:/var/jenkins_home
         ports:
-            - "8080:8080"
+            - "8888:8080"
             - "50000:50000"
         dns:
             - 8.8.8.8
