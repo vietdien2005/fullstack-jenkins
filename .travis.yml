@@ -6,9 +6,8 @@ services:
 before_script:
 - docker --version
 - docker-compose --version
-- pip install selenium==3.3.1
 script:
-- chmod -R 777 jenkins/home
+- chmod -R 0777 jenkins/home
 - docker-compose build
 - docker images
 - docker-compose up -d
@@ -17,10 +16,9 @@ script:
 - bash tests/test_php.sh
 - bash tests/test_python.sh
 - bash tests/test_nodejs.sh
-- python tests/test_selenium.py
 after_success:
 - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
-- docker push vietdien2005/fullstack_jenkins
+- docker push vietdien2005/fullstack_jenkins_minimal
 notifications:
   slack:
     secure: rJrlnnlxParE8xPLtI13z6Ldtdt+ddLiEzEcIywce1nRZ8mCuWVrQwB9nGze5gFIDRYOf5BJgYMasW7PfrOvmcqwZQzOIDbQ98+hFq0GJUdBNMYACTXU8e+mPHw42SH81SQbVtl3YWX1Qtt15Msf0DyVMpl8efZ9qotP/DORWdghEsG6lMlQRhWIyQc/teCYzYM3xn9cBuvVCyuszKtCS1WtYBHfKEP0UjaUrrCbQfvtCXX0jYnAY0ZAnC7ITv7yt1OygVd/O98dAZm4StgylA46Nt1Kg3k2EKjrmhaPWgW05yyDQk72yjUG54IOJ1niU09dAt/E7MvJUwTeYXT0AB3gaYe/cGB9vbHRsygS220hplPLVOVDhFs3yJS4eDRLCHTr8YjPDNvB6ryJUA1WSHr1QTpKlbKp/zxLOxoztZU7xoXdWaQFFGmsNOXGEHYaDzVm1ySm3OxP1QhLV75F5pwh0V0VxekI51qCiNHQrYK3V/gqxcLflsGR8ks5yycQLOuU3XRzntyhXiZC/BDKpPtBBlTM49rsfuymQ/+HKLPb+iZOCyo0sSoJcTBftrkV9YI5cHqUDEl77HTrnHKTDTE3mOZcaMxHLc6ZZ2g8U9HCapRyfur/GjMp6Z+SxGsfxKWJVBgk9RzUMW4HSHLCwLu9EadfEkegfc71msrMVpk=
