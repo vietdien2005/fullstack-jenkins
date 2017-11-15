@@ -7,6 +7,8 @@ services:
         image: vietdien2005/fullstack_jenkins_alpine_minimal:latest
         volumes:
             - ./home:/var/jenkins_home
+        environment:
+            JAVA_OPTS: -Djenkins.install.runSetupWizard=false
         ports:
             - "8888:8080"
             - "50000:50000"

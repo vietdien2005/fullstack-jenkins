@@ -72,7 +72,9 @@ pipeline-model-declarative-agent:latest
 pipeline-model-definition:latest
 cloudbees-folder:latest
 jackson2-api:latest
+selenium:latest
 seleniumhq:latest
+testingbot:latest
 pipeline-model-api:latest
 authentication-tokens:latest
 workflow-cps-global-lib:latest

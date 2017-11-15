@@ -48,7 +48,7 @@ RUN apk add --no-cache nodejs && \
 # Clean packages 
 RUN rm -rf /var/cache/apk/*
 
-# Setup Jenkins
+# Setup Config Jenkins
 COPY ./config/config.xml /usr/share/jenkins/ref/config.xml
 COPY ./config/jenkins.model.JenkinsLocationConfiguration.xml /usr/share/jenkins/ref/jenkins.model.JenkinsLocationConfiguration.xml
 COPY ./config/nodeMonitors.xml /usr/share/jenkins/ref/nodeMonitors.xml
@@ -61,9 +61,5 @@ USER jenkins
 COPY ./config/plugins.txt /usr/share/jenkins/plugins.txt
 RUN /usr/local/bin/install-plugins.sh $(cat /usr/share/jenkins/plugins.txt | tr '\n' ' ')
 
-RUN echo 2.0 > /usr/share/jenkins/ref/jenkins.install.UpgradeWizard.state
-
-CMD java ${JVM_OPTS} \
-	-Djenkins.install.runSetupWizard=false \
-	-jar /usr/share/jenkins/jenkins.war \
-	${JENKINS_OPTS}
+# Setup version Jenkins
+RUN echo $(java -jar /usr/share/jenkins/jenkins.war --version) > /usr/share/jenkins/ref/jenkins.install.UpgradeWizard.state
