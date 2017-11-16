@@ -7,12 +7,12 @@ USER root
 # Basic tools
 RUN apk update
 
-RUN apk add --no-cache sudo git doxygen wget vim python python-dev ca-certificates dialog gcc musl-dev libffi-dev \
+RUN apk add --update sudo git doxygen wget vim python python-dev ca-certificates dialog gcc musl-dev libffi-dev \
 	zip unzip curl autoconf automake re2c tzdata libxml2 libxml2-dev bison openssl gettext libmcrypt-dev xvfb python \
 	python-dev py-pip build-base
 
 # Install Php 7.0
-RUN apk add --no-cache php7 php7-cgi php7-common php7-curl php7-dba php7-dev php7-fpm php7-gd php7-gmp php7-imap php7-intl \
+RUN apk add --update php7 php7-cgi php7-common php7-curl php7-dba php7-dev php7-fpm php7-gd php7-gmp php7-imap php7-intl \
 	php7-json php7-mbstring php7-mcrypt php7-odbc php7-opcache php7-pgsql php7-pspell php7-sqlite3 php7-tidy php7-xml \
 	php7-xmlrpc php7-xsl php7-zip php7-phar php7-zlib php7-dom php7-ctype php7-iconv php7-pdo php7-pdo_mysql php7-pdo_sqlite \
 	php7-pdo_pgsql php7-session php7-openssl php7-sockets php7-posix php7-ldap
@@ -42,7 +42,7 @@ RUN pip install --upgrade pip \
 	&& pip install selenium==3.3.1 virtualenv nose
 
 # Install NodeJS & Packages Global
-RUN apk add --no-cache nodejs \
+RUN apk add --update nodejs \
 	&& npm install --global yarn \
 	&& yarn global add n \
 	&& n latest \
