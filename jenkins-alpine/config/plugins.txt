@@ -7,7 +7,6 @@ durable-task:latest
 antisamy-markup-formatter:latest
 github-branch-source:latest
 pipeline-model-extensions:latest
-javadoc:latest
 maven-plugin:latest
 mapdb-api:latest
 branch-api:latest

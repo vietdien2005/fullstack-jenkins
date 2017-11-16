@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -ev
+
 CMD=(
 	'php -v',
 	'composer --version'
