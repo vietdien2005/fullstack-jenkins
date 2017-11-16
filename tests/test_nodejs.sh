@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 CMD=(
 	'node -v'
 	'npm -v'
