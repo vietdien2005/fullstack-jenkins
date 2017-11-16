@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -ev
-
 CMD=(
 	'python --version'
 	'pip --version'
