@@ -128,5 +128,8 @@ USER jenkins
 COPY ./config/plugins.txt /usr/share/jenkins/plugins.txt
 RUN /usr/local/bin/install-plugins.sh $(cat /usr/share/jenkins/plugins.txt | tr '\n' ' ')
 
+# Upgrade Jenkins latest
+RUN wget -q http://updates.jenkins-ci.org/latest/jenkins.war -O /usr/share/jenkins/jenkins.war
+
 # Setup version Jenkins
 RUN echo $(java -jar /usr/share/jenkins/jenkins.war --version) > /usr/share/jenkins/ref/jenkins.install.UpgradeWizard.state
