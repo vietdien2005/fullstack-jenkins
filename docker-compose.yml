@@ -4,7 +4,7 @@ services:
     jenkins:
         build: 
             context: ./jenkins-alpine
-        image: vietdien2005/fullstack_jenkins_alpine_minimal:latest
+        image: vietdien2005/fullstack_jenkins_alpine:latest
         volumes:
             - ./home:/var/jenkins_home
         environment:
