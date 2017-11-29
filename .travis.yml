@@ -18,7 +18,12 @@ script:
 - chmod ugo+x tests/test_nodejs.sh && bash tests/test_nodejs.sh
 after_success:
 - docker login -u $DOCKER_USER -p $DOCKER_PASS
-- docker push vietdien2005/fullstack_jenkins_alpine
+- export REPO=ietdien2005/fullstack_jenkins_alpine
+- export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
+- docker build -f ./jenkins-alpine/Dockerfile -t $REPO:$COMMIT .
+- docker tag $REPO:$COMMIT $REPO:$TAG
+- docker tag $REPO:$COMMIT $REPO:travis-$TRAVIS_BUILD_NUMBER
+- docker push $REPO
 env:
   global:
   - secure: WKcXFC+achSWxPSUF4hpJueSAWuvcS0Ai5di+/zZjF/xO8RtnNmbhm7q/DI0O9j07hpopxzfGIualjN84U0Rxa6+jbhzumKO7Zo4EwmO4zL/J+yZy3+zUSxTEWy+C5P3lIkLhr6YnSa28cVVo4eCmrefIjJs8LC3R1nHeCeYOfdkj5SazkYVhr2b4/9nN4aORVF0zn4qQk5YovuUs4M1woHuGqLWXOoyf1AcRphuyS0pZgnVioUKezvmS0ypHvqeQzFP5eoPkqrHZcUCHb5wv1v42xA9F2bCyAs1fpId9huqTgpNBKV94+uVtUQAQnTmJAHIN6lzfKJWMSBCGKEceR3OYmtV1PHAzQSE0hqmVFJfZObUeOIXxYazvvftVbFssR217Xjj5YSN9drXgswrut+ZpyHV5aQgrDr7Pr4TGY4N2cd/8E1I892Pj4TWzhlOnSAqdxZBIPNJ5Gq+wDjFdRotxGeIK38VNi3P/IT+xLIb96G7lDLLIXpFKNAPSo+34m/B5eFxI7LMDL4l0FH4ysL3icOfJ9Z7YBpYtDy/V/btCgtrABBsCKUc474UnK8CCV6CtgwDp8yrqxnPzkbAKqT5kN0nxk7e8O15mb/hEBgIvJH0eW9dJ3FLOr0uSa4DLCdWXSOsjW+kvqqxRNA8abA7t4X5n7xEIvkDu5vZ7jI=
