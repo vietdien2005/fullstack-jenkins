@@ -1,0 +1,10 @@
+# Ignore .git folder
+.git*
+.gitignore
+
+LICENSE
+README.md
+README.md.bu
+docker-compose.yml
+.DS_Store
+build
