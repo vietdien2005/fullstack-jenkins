@@ -15,10 +15,12 @@ RUN apk add --update --no-cache sudo git doxygen vim python python-dev ca-certif
 	zip unzip curl autoconf automake re2c tzdata libxml2 libxml2-dev bison openssl gettext libmcrypt-dev xvfb python \
 	python-dev py-pip build-base
 
+RUN apk --no-cache add --virtual build-deps
+
 # Install Php 7.0
-RUN apk add --update --no-cache \
+RUN apk update --no-cache \
     php7@php \
-    php7-apcu@php	\
+    php7-apcu@php \
     php7-bcmath@php \
     php7-bz2@php \
     php7-calendar@php \
@@ -107,13 +109,8 @@ RUN cp /usr/share/zoneinfo/Asia/Ho_Chi_Minh /etc/localtime \
 RUN pip install --upgrade pip \
 	&& pip install selenium==3.3.1 virtualenv nose
 
-# Install NodeJS & Packages Global
-RUN apk add --update --no-cache nodejs \
-	&& npm install --global yarn \
-	&& yarn global add n mocha gulp webpack jscs standard webpack-dev-server
-
 # Upgrade Jenkins latest
-RUN wget -q http://updates.jenkins-ci.org/latest/jenkins.war -O /usr/share/jenkins/jenkins.war
+RUN wget -q http://mirrors.jenkins.io/war-stable/latest/jenkins.war -O /usr/share/jenkins/jenkins.war
 
 # Setup Config Jenkins
 COPY ./config/config.xml /usr/share/jenkins/ref/config.xml
