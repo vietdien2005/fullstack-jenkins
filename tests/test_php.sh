@@ -18,6 +18,6 @@ CMD=(
 for i in "${CMD[@]}"
 do
 	echo $i
-	eval 'docker exec -it fullstackjenkins_jenkins_1' $i
+	eval 'docker exec -it fullstack_jenkins' $i
 	echo '======================================================'
 done
