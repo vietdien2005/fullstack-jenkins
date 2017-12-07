@@ -15,7 +15,6 @@ script:
 - sleep 10
 - chmod ugo+x tests/test_php.sh && bash tests/test_php.sh
 - chmod ugo+x tests/test_python.sh && bash tests/test_python.sh
-- chmod ugo+x tests/test_nodejs.sh && bash tests/test_nodejs.sh
 after_success:
 - docker login -u $DOCKER_USER -p $DOCKER_PASS
 - export REPO=ietdien2005/fullstack_jenkins_alpine
