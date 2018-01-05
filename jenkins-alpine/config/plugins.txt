@@ -111,7 +111,6 @@ cloudbees-folder:latest
 blueocean-jira:latest
 blueocean-commons:latest
 jackson2-api:latest
-seleniumhq:latest
 pipeline-model-api:latest
 authentication-tokens:latest
 workflow-cps-global-lib:latest
