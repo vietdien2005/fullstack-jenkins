@@ -71,7 +71,9 @@ RUN apk add --update --no-cache \
         php7-tokenizer \
         php7-fileinfo \
         php7-gd \
-        php7-simplexml
+        php7-simplexml \
+        php7-xmlwriter \
+        php7-xmlreader
 
 # Install php tools
 RUN mkdir -p /usr/local/bin
