@@ -4,7 +4,7 @@
 
 # Fullstack Jenkins
 
-Simple Docker Jenkins Image for PHP 7.0, NodeJS projects & testing with Selenium Python
+Simple Docker Jenkins Image for PHP 7.0
 
 ## Running
 
@@ -39,22 +39,6 @@ And go to http://localhost:8080 and login with:
 - selenium
 - nose
 - virtualenv
-
-## Web Drivers
-
-- chromedriver (Google Chrome)
-- geckodriver (Mozilla Firefox)
-- phantomjs (PhantomJS)
-
-## Included NodeJS tools
-
-- yarn
-- mocha
-- gulp
-- webpack
-- jscs
-- standard
-- webpack-dev-server
 
 ## Plugins Jenkins
 

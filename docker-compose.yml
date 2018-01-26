@@ -1,66 +1,18 @@
-version: '2'
+version: '3'
 
 services:
     jenkins:
+        container_name: fullstack_jenkins
         build: 
-            context: ./jenkins
-        image: vietdien2005/fullstack_jenkins:latest
+            context: ./jenkins-alpine
+        image: vietdien2005/fullstack_jenkins_alpine:latest
         volumes:
             - ./home:/var/jenkins_home
-        ports:
-            - "8080:8080"
-            - "50000:50000"
-        depends_on:
-            - selenium-hub
         environment:
             JAVA_OPTS: -Djenkins.install.runSetupWizard=false
-        networks:
-            - jenkins_network
+        ports:
+            - "8888:8080"
+            - "50000:50000"
         dns:
             - 8.8.8.8
             - 8.8.4.4
-
-    selenium-hub:
-        image: selenium/hub:3.3.1
-        ports:
-            - "4444:4444"
-        networks:
-            - jenkins_network
-
-    selenium-node-firefox:
-        image: selenium/node-firefox:3.3.1
-        networks:
-            - jenkins_network
-        environment:
-            HUB_PORT_4444_TCP_ADDR: selenium-hub
-            HUB_PORT_4444_TCP_PORT: 4444
-        depends_on:
-            - selenium-hub
-
-    selenium-node-chrome:
-        image: selenium/node-chrome:3.3.1
-        volumes:
-            - /dev/shm:/dev/shm
-        networks:
-            - jenkins_network
-        environment:
-            HUB_PORT_4444_TCP_ADDR: selenium-hub
-            HUB_PORT_4444_TCP_PORT: 4444
-        depends_on:
-            - selenium-hub
-
-    selenium-node-phantomjs:
-        image: selenium/node-phantomjs:3.3.1
-        volumes:
-            - /dev/shm:/dev/shm
-        networks:
-            - jenkins_network
-        environment:
-            HUB_PORT_4444_TCP_ADDR: selenium-hub
-            HUB_PORT_4444_TCP_PORT: 4444
-        depends_on:
-            - selenium-hub
-
-networks:
-    jenkins_network:
-        driver: bridge
