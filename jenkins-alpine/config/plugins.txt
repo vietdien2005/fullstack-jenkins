@@ -90,13 +90,10 @@ pipeline-rest-api:latest
 nodejs:latest
 workflow-basic-steps:latest
 checkstyle:latest
-bouncycastle-api:latest
 crap4j:latest
-pam-auth:latest
 embeddable-build-status:latest
 workflow-cps:latest
 jira:latest
-windows-slaves:latest
 violations:latest
 workflow-cps-global-lib:latest
 blueocean-rest:latest
