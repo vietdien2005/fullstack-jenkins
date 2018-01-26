@@ -70,7 +70,8 @@ RUN apk add --update --no-cache \
         php7-zlib \
         php7-tokenizer \
         php7-fileinfo \
-        php7-gd
+        php7-gd \
+        php7-simplexml
 
 # Install php tools
 RUN mkdir -p /usr/local/bin
