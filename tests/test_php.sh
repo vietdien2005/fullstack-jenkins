@@ -11,8 +11,10 @@ CMD=(
 	'phploc --version'
 	'phptok --version'
 	'phpdox -v'
-	'box --version'
 	'phpbrew --version'
+	'pdepend --version'
+	'phpcbf --version'
+	'phpcs --version'
 )
 
 for i in "${CMD[@]}"
