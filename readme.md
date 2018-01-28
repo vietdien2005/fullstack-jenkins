@@ -16,7 +16,11 @@ And go to http://localhost:8080 and login with:
 
 - Username: fullstack_jenkins
 - Password: fullstack_jenkins
-	
+
+## Template Jobs
+
+- Template PHP Code Coverate from <http://jenkins-php.org/index.html>
+
 ## Theme Jenkins 
 
 - From [jenkins-material-theme](https://github.com/afonsof/jenkins-material-theme)
