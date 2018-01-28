@@ -2,6 +2,18 @@ FROM jenkins/jenkins:lts-alpine
 
 MAINTAINER Dam Viet "vietdien2005@gmail.com"
 
+ARG BUILD_DATE
+ARG VCS_REF
+ARG VERSION
+LABEL org.label-schema.build-date=$BUILD_DATE \
+    org.label-schema.name="Fullstack Jenkins" \
+    org.label-schema.description="Simple Docker Jenkins Image for PHP 7.0" \
+    org.label-schema.url="https://github.com/vietdien2005/fullstack-jenkins" \
+    org.label-schema.vcs-ref=$VCS_REF \
+    org.label-schema.vcs-url="https://github.com/vietdien2005/fullstack-jenkins" \
+    org.label-schema.version=$VERSION \
+    org.label-schema.schema-version="1.0"
+
 USER root
 
 # Basic tools
