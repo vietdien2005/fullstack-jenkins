@@ -16,23 +16,30 @@ And go to http://localhost:8080 and login with:
 
 - Username: fullstack_jenkins
 - Password: fullstack_jenkins
-	
+
+## Template Jobs
+
+- Template PHP Code Coverate from <http://jenkins-php.org/index.html>
+
 ## Theme Jenkins 
 
 - From [jenkins-material-theme](https://github.com/afonsof/jenkins-material-theme)
 
 ## Included PHP tools
 
-- phpunit from <https://phar.phpunit.de/phpunit.phar>
-- composer from <https://getcomposer.org/composer.phar>
-- phpmd from <http://static.phpmd.org/php/latest/phpmd.phar>
-- sami from <http://get.sensiolabs.org/sami.phar>
-- phpcov from <https://phar.phpunit.de/phpcov.phar>
-- phpcpd from <https://phar.phpunit.de/phpcpd.phar>
-- phploc from <https://phar.phpunit.de/phploc.phar>
-- phptok from <https://phar.phpunit.de/phptok.phar>
-- box from <https://github.com/box-project/box2/releases/download/2.5.2/box-2.5.2.phar>
-- phpbrew from <https://github.com/phpbrew/phpbrew/raw/master/phpbrew>
+- phpunit from <https://phar.phpunit.de>
+- phpcov from <https://phar.phpunit.de>
+- phpcpd from <https://phar.phpunit.de>
+- phploc from <https://phar.phpunit.de>
+- phptok from <https://phar.phpunit.de>
+- composer from <https://getcomposer.org>
+- phpmd from <https://phpmd.org>
+- sami from <https://sensiolabs.com>
+- phpcbf from <https://squizlabs.github.io/PHP_CodeSniffer/analysis>
+- phpcs from <https://squizlabs.github.io/PHP_CodeSniffer/analysis>
+- phpdox from <http://phpdox.de>
+- pdepend from <https://pdepend.org>
+- phpbrew from <https://phpbrew.github.io/phpbrew>
 
 ## Included Python tools
 
@@ -42,98 +49,144 @@ And go to http://localhost:8080 and login with:
 
 ## Plugins Jenkins
 
-- pipeline-stage-tags-metadata
-- structs
-- handlebars
-- junit
-- resource-disposer
-- pam-auth
-- durable-task
-- windows-slaves
-- antisamy-markup-formatter
-- github-branch-source
-- pipeline-model-extensions
-- javadoc
-- maven-plugin
-- mapdb-api
-- branch-api
-- pipeline-milestone-step
-- external-monitor-job
-- workflow-aggregator
-- analysis-core
-- matrix-project
-- workflow-cps
-- workflow-job
-- docker-commons
-- slack
-- build-timeout
-- script-security
-- mercurial
-- ant
-- publish-over-ssh
-- pipeline-github-lib
-- momentjs
-- workflow-api
-- plain-credentials
-- token-macro
-- workflow-support
-- bitbucket
-- github-api
-- credentials-binding
-- workflow-durable-task-step
+- blueocean-display-url
 - ldap
-- workflow-basic-steps
-- ws-cleanup
-- jquery-detached
-- github
-- pipeline-input-step
+- pipeline-stage-tags-metadata
+- apache-httpcomponents-client-4-api
+- blueocean
+- notification
+- sse-gateway
+- workflow-aggregator
+- warnings
+- dry
+- jdepend
+- structs
 - ace-editor
-- pipeline-rest-api
-- git-client
-- git
-- pipeline-build-step
-- ssh
-- matrix-auth
-- scm-api
-- bouncycastle-api
-- git-server
-- gradle
-- workflow-scm-step
-- simple-theme-plugin
-- credentials
-- pipeline-stage-view
-- workflow-multibranch
-- workflow-step-api
-- jsch
-- timestamper
-- display-url-api
-- docker-workflow
-- ssh-credentials
-- ssh-slaves
-- mailer
-- icon-shim
-- pipeline-graph-analysis
-- thinBackup
-- email-ext
-- pipeline-model-declarative-agent
-- pipeline-model-definition
-- cloudbees-folder
 - jackson2-api
-- seleniumhq
-- pipeline-model-api
-- authentication-tokens
-- workflow-cps-global-lib
-- pipeline-stage-step
-- run-condition
-- conditional-buildstep
-- docker-build-publish
-- embeddable-build-status
-- gitlab-plugin
-- jobConfigHistory
-- monitoring
-- rebuild
+- jquery-detached
+- git-server
+- ant
 - role-strategy
+- pipeline-model-declarative-agent
+- resource-disposer
+- matrix-project
+- conditional-buildstep
+- momentjs
+- credentials-binding
+- ssh-credentials
+- pipeline-model-api
+- ssh
+- pipeline-model-extensions
+- publish-over-ssh
+- gradle
+- command-launcher
+- bitbucket
+- run-condition
+- jsch
+- build-timeout
+- workflow-step-api
+- docker-commons
+- cloverphp
+- blueocean-core-js
+- timestamper
+- pipeline-github-lib
+- ws-cleanup
+- antisamy-markup-formatter
+- gitlab-plugin
+- branch-api
+- variant
+- email-ext
+- blueocean-bitbucket-pipeline
+- durable-task
+- mapdb-api
+- testingbot
+- git-client
 - saferestart
+- blueocean-autofavorite
+- pipeline-model-definition
+- junit
+- display-url-api
+- git
+- pipeline-milestone-step
+- analysis-core
+- handlebars
+- blueocean-rest-impl
+- blueocean-dashboard
+- cloudbees-folder
+- github-api
+- workflow-support
+- external-monitor-job
+- blueocean-config
+- workflow-durable-task-step
+- maven-plugin
+- cloudbees-bitbucket-branch-source
+- blueocean-commons
+- workflow-scm-step
+- config-file-provider
+- publish-over
+- mailer
+- pipeline-input-step
+- xunit
+- pipeline-stage-view
+- favorite
+- matrix-auth
+- blueocean-jwt
+- simple-theme-plugin
+- pipeline-build-step
+- workflow-multibranch
+- credentials
+- script-security
+- plot
+- pipeline-rest-api
+- nodejs
+- workflow-basic-steps
+- checkstyle
+- crap4j
+- embeddable-build-status
+- workflow-cps
+- jira
+- violations
+- workflow-cps-global-lib
+- blueocean-rest
+- plain-credentials
+- workflow-job
+- blueocean-github-pipeline
+- discard-old-build
+- authentication-tokens
+- git-changelog
+- blueocean-jira
+- github-branch-source
+- mercurial
+- blueocean-git-pipeline
+- docker-workflow
+- blueocean-personalization
+- thinBackup
+- gravatar
+- javadoc
+- internetmeme
+- scm-api
+- blueocean-web
+- pipeline-graph-analysis
+- jenkins-design-language
+- jobConfigHistory
+- pmd
+- token-macro
+- workflow-api
+- blueocean-i18n
+- blueocean-pipeline-api-impl
+- docker-build-publish
+- icon-shim
+- rebuild
+- blueocean-events
+- github
+- htmlpublisher
+- show-build-parameters
+- pipeline-stage-step
+- pubsub-light
+- blueocean-pipeline-scm-api
+- blueocean-pipeline-editor
+- handy-uri-templates-2-api
+- ssh-slaves
 
 ## Support
 ### Get the list of plugins from an existing server:

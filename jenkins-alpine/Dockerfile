@@ -76,10 +76,12 @@ RUN apk add --update --no-cache \
         php7-exif \
         php7-fileinfo \
         php7-pear \
+        php7-apache2 \
         php7-cgi \
         php7-dev \
         php7-doc \
         php7-embed \
+        php7-fpm \
         php7-litespeed \
         php7-phpdbg \
         php7-imagick \
@@ -137,6 +139,7 @@ COPY ./config/nodeMonitors.xml /usr/share/jenkins/ref/nodeMonitors.xml
 COPY ./config/org.codefirst.SimpleThemeDecorator.xml /usr/share/jenkins/ref/org.codefirst.SimpleThemeDecorator.xml
 COPY ./config/thinBackup.xml /usr/share/jenkins/ref/thinBackup.xml
 COPY ./config/users /usr/share/jenkins/ref/users
+COPY ./config/jobs /usr/share/jenkins/ref/jobs
 
 # Clean packages 
 RUN rm -rf /var/cache/apk/*
