@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/vietdien2005/fullstack-jenkins.svg?branch=master)](https://travis-ci.org/vietdien2005/fullstack-jenkins) [![](https://images.microbadger.com/badges/image/vietdien2005/fullstack_jenkins_alpine.svg)](https://microbadger.com/images/vietdien2005/fullstack_jenkins_alpine "Get your own image badge on microbadger.com") [![](https://images.microbadger.com/badges/version/vietdien2005/fullstack_jenkins_alpine.svg)](https://microbadger.com/images/vietdien2005/fullstack_jenkins_alpine "Get your own version badge on microbadger.com")
 
-![Demo Image](http://image-store.slidesharecdn.com/da8e74c0-98cd-408d-a3cc-783e45d3ca9f-original.png)
+![Demo Image](https://raw.githubusercontent.com/vietdien2005/fullstack-jenkins/master/image.png)
 
 # Fullstack Jenkins
 
