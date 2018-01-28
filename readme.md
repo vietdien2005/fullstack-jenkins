@@ -12,14 +12,14 @@ Command:
 
 	docker-composer up -d
 
-And go to http://localhost:8080 and login with: 
+And go to http://localhost:8888 and login with:
 
 - Username: fullstack_jenkins
 - Password: fullstack_jenkins
 
 ## Template Jobs
 
-- Template PHP Code Coverate from <http://jenkins-php.org/index.html>
+- Template PHP Code Coverage from <http://jenkins-php.org/index.html>
 
 ## Theme Jenkins 
 
@@ -193,3 +193,9 @@ And go to http://localhost:8080 and login with:
 
 	JENKINS_HOST=username:password@host.com:port
 	curl -sSL "http://$JENKINS_HOST/pluginManager/api/xml?depth=1&xpath=/*/*/shortName|/*/*/version&wrapper=plugins" | perl -pe 's/.*?<shortName>([\w-]+).*?<version>([^<]+)()(<\/\w+>)+/\1 \2\n/g'|sed 's/ /:/'
+
+## Donate
+
+[![Donate with Bitcoin](https://en.cryptobadges.io/badge/big/1Cvk2WP8rfhhcKLBgxxK1e6bo5ffRYhQm1)](https://en.cryptobadges.io/donate/1Cvk2WP8rfhhcKLBgxxK1e6bo5ffRYhQm1)
+
+[![Donate with Ethereum](https://en.cryptobadges.io/badge/big/0x0D0A378451a1D32082d08981d9DD9d8cD1773539)](https://en.cryptobadges.io/donate/0x0D0A378451a1D32082d08981d9DD9d8cD1773539)
