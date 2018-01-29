@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/vietdien2005/fullstack-jenkins.svg?branch=master)](https://travis-ci.org/vietdien2005/fullstack-jenkins) [![](https://images.microbadger.com/badges/image/vietdien2005/fullstack_jenkins_alpine.svg)](https://microbadger.com/images/vietdien2005/fullstack_jenkins_alpine "Get your own image badge on microbadger.com") [![](https://images.microbadger.com/badges/version/vietdien2005/fullstack_jenkins_alpine.svg)](https://microbadger.com/images/vietdien2005/fullstack_jenkins_alpine "Get your own version badge on microbadger.com")
+[![Build Status](https://travis-ci.org/vietdien2005/fullstack-jenkins.svg?branch=master)](https://travis-ci.org/vietdien2005/fullstack-jenkins) [![](https://images.microbadger.com/badges/image/vietdien2005/fullstack_jenkins_alpine.svg)](https://microbadger.com/images/vietdien2005/fullstack_jenkins_alpine "Get your own image badge on microbadger.com") [![](https://images.microbadger.com/badges/version/vietdien2005/fullstack_jenkins_alpine.svg)](https://microbadger.com/images/vietdien2005/fullstack_jenkins_alpine "Get your own version badge on microbadger.com") [![Donate with Bitcoin](https://en.cryptobadges.io/badge/micro/1KKeoHcvfErak1bQq92uDuCXmcpEtT2ufE)](https://en.cryptobadges.io/donate/1KKeoHcvfErak1bQq92uDuCXmcpEtT2ufE) [![Donate with Litecoin](https://en.cryptobadges.io/badge/micro/LKqoLFQnxjY672rKjCk1NhXiCoDLcQDtnz)](https://en.cryptobadges.io/donate/LKqoLFQnxjY672rKjCk1NhXiCoDLcQDtnz) [![Donate with Ethereum](https://en.cryptobadges.io/badge/micro/0x93c1D92d120861C9Bc6b1A3aa90809e4da2c0D68)](https://en.cryptobadges.io/donate/0x93c1D92d120861C9Bc6b1A3aa90809e4da2c0D68)
 
 ![Demo Image](https://raw.githubusercontent.com/vietdien2005/fullstack-jenkins/master/image.png)
 
@@ -196,6 +196,8 @@ And go to http://localhost:8888 and login with:
 
 ## Donate
 
-[![Donate with Bitcoin](https://en.cryptobadges.io/badge/big/1Cvk2WP8rfhhcKLBgxxK1e6bo5ffRYhQm1)](https://en.cryptobadges.io/donate/1Cvk2WP8rfhhcKLBgxxK1e6bo5ffRYhQm1)
+[![Donate with Bitcoin](https://en.cryptobadges.io/badge/big/1KKeoHcvfErak1bQq92uDuCXmcpEtT2ufE)](https://en.cryptobadges.io/donate/1KKeoHcvfErak1bQq92uDuCXmcpEtT2ufE)
 
-[![Donate with Ethereum](https://en.cryptobadges.io/badge/big/0x0D0A378451a1D32082d08981d9DD9d8cD1773539)](https://en.cryptobadges.io/donate/0x0D0A378451a1D32082d08981d9DD9d8cD1773539)
+[![Donate with Ethereum](https://en.cryptobadges.io/badge/big/0x93c1D92d120861C9Bc6b1A3aa90809e4da2c0D68)](https://en.cryptobadges.io/donate/0x93c1D92d120861C9Bc6b1A3aa90809e4da2c0D68)
+
+[![Donate with Litecoin](https://en.cryptobadges.io/badge/big/LKqoLFQnxjY672rKjCk1NhXiCoDLcQDtnz?showBalance=true)](https://en.cryptobadges.io/donate/LKqoLFQnxjY672rKjCk1NhXiCoDLcQDtnz)
