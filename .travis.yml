@@ -17,7 +17,7 @@ script:
 - chmod ugo+x tests/test_python.sh && bash tests/test_python.sh
 after_success:
 - docker login -u $DOCKER_USER -p $DOCKER_PASS
-- export REPO=ietdien2005/fullstack_jenkins_alpine
+- export REPO=vietdien2005/fullstack_jenkins_alpine
 - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
 - docker build -f ./jenkins-alpine/Dockerfile -t $REPO:$COMMIT .
 - docker tag $REPO:$COMMIT $REPO:$TAG
