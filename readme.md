@@ -197,7 +197,12 @@ And go to http://localhost:8888 and login with:
 ## Donate
 
 [![Donate with Bitcoin](https://en.cryptobadges.io/badge/big/1KKeoHcvfErak1bQq92uDuCXmcpEtT2ufE)](https://en.cryptobadges.io/donate/1KKeoHcvfErak1bQq92uDuCXmcpEtT2ufE)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fvietdien2005%2Ffullstack-jenkins.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fvietdien2005%2Ffullstack-jenkins?ref=badge_shield)
 
 [![Donate with Ethereum](https://en.cryptobadges.io/badge/big/0x93c1D92d120861C9Bc6b1A3aa90809e4da2c0D68)](https://en.cryptobadges.io/donate/0x93c1D92d120861C9Bc6b1A3aa90809e4da2c0D68)
 
 [![Donate with Litecoin](https://en.cryptobadges.io/badge/big/LKqoLFQnxjY672rKjCk1NhXiCoDLcQDtnz?showBalance=true)](https://en.cryptobadges.io/donate/LKqoLFQnxjY672rKjCk1NhXiCoDLcQDtnz)
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fvietdien2005%2Ffullstack-jenkins.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fvietdien2005%2Ffullstack-jenkins?ref=badge_large)
