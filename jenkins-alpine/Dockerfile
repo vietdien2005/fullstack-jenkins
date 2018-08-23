@@ -1,13 +1,13 @@
 FROM jenkins/jenkins:lts-alpine
 
-MAINTAINER Dam Viet "vietdien2005@gmail.com"
+LABEL mantainer="Dam Viet <vietdien2005@gmail.com>"
 
 ARG BUILD_DATE
 ARG VCS_REF
 ARG VERSION
 LABEL org.label-schema.build-date=$BUILD_DATE \
     org.label-schema.name="Fullstack Jenkins" \
-    org.label-schema.description="Simple Docker Jenkins Image for PHP 7.0" \
+    org.label-schema.description="Simple Docker Jenkins Image for PHP 7.2" \
     org.label-schema.url="https://github.com/vietdien2005/fullstack-jenkins" \
     org.label-schema.vcs-ref=$VCS_REF \
     org.label-schema.vcs-url="https://github.com/vietdien2005/fullstack-jenkins" \
@@ -19,13 +19,14 @@ USER root
 # Basic tools
 RUN apk update --no-cache && apk upgrade
 
-RUN apk add --update --no-cache sudo git doxygen vim python python-dev ca-certificates dialog gcc musl-dev libffi-dev \
-	zip unzip curl autoconf automake re2c tzdata libxml2 libxml2-dev bison openssl gettext libmcrypt-dev xvfb python \
-	python-dev py-pip build-base
+RUN apk add --update --no-cache \
+    sudo git doxygen vim python python-dev ca-certificates dialog gcc musl-dev \
+    libffi-dev zip unzip curl autoconf automake re2c tzdata libxml2 libxml2-dev \
+    bison openssl gettext libmcrypt-dev xvfb python python-dev py-pip build-base
 
 RUN apk --no-cache add --virtual build-deps
 
-# Install Php 7.0
+# Install Php 7.2
 RUN apk add --update --no-cache \
         php7 \
         php7-memcached \
@@ -153,7 +154,7 @@ COPY ./config/thinBackup.xml /usr/share/jenkins/ref/thinBackup.xml
 COPY ./config/users /usr/share/jenkins/ref/users
 COPY ./config/jobs /usr/share/jenkins/ref/jobs
 
-# Clean packages 
+# Clean packages
 RUN rm -rf /var/cache/apk/*
 
 # Install plugin Jenkins

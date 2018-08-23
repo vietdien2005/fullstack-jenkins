@@ -1,18 +1,20 @@
-[![Build Status](https://travis-ci.org/vietdien2005/fullstack-jenkins.svg?branch=master)](https://travis-ci.org/vietdien2005/fullstack-jenkins) [![](https://images.microbadger.com/badges/image/vietdien2005/fullstack_jenkins_alpine.svg)](https://microbadger.com/images/vietdien2005/fullstack_jenkins_alpine) [![](https://images.microbadger.com/badges/version/vietdien2005/fullstack_jenkins_alpine.svg)](https://microbadger.com/images/vietdien2005/fullstack_jenkins_alpine) [![Donate with Bitcoin](https://en.cryptobadges.io/badge/micro/1KKeoHcvfErak1bQq92uDuCXmcpEtT2ufE)](https://en.cryptobadges.io/donate/1KKeoHcvfErak1bQq92uDuCXmcpEtT2ufE) [![Donate with Litecoin](https://en.cryptobadges.io/badge/micro/LKqoLFQnxjY672rKjCk1NhXiCoDLcQDtnz)](https://en.cryptobadges.io/donate/LKqoLFQnxjY672rKjCk1NhXiCoDLcQDtnz) [![Donate with Ethereum](https://en.cryptobadges.io/badge/micro/0x93c1D92d120861C9Bc6b1A3aa90809e4da2c0D68)](https://en.cryptobadges.io/donate/0x93c1D92d120861C9Bc6b1A3aa90809e4da2c0D68)
+# Fullstack Jenkins
+
+[![Travis Status](https://travis-ci.org/vietdien2005/fullstack-jenkins.svg?branch=master)](https://travis-ci.org/vietdien2005/fullstack-jenkins) [![Badger Image](https://images.microbadger.com/badges/image/vietdien2005/fullstack_jenkins_alpine.svg)](https://microbadger.com/images/vietdien2005/fullstack_jenkins_alpine) [![Badger Version](https://images.microbadger.com/badges/version/vietdien2005/fullstack_jenkins_alpine.svg)](https://microbadger.com/images/vietdien2005/fullstack_jenkins_alpine) [![Donate with Bitcoin](https://en.cryptobadges.io/badge/micro/1KKeoHcvfErak1bQq92uDuCXmcpEtT2ufE)](https://en.cryptobadges.io/donate/1KKeoHcvfErak1bQq92uDuCXmcpEtT2ufE) [![Donate with Litecoin](https://en.cryptobadges.io/badge/micro/LKqoLFQnxjY672rKjCk1NhXiCoDLcQDtnz)](https://en.cryptobadges.io/donate/LKqoLFQnxjY672rKjCk1NhXiCoDLcQDtnz) [![Donate with Ethereum](https://en.cryptobadges.io/badge/micro/0x93c1D92d120861C9Bc6b1A3aa90809e4da2c0D68)](https://en.cryptobadges.io/donate/0x93c1D92d120861C9Bc6b1A3aa90809e4da2c0D68)
 
 ![Demo Image](https://raw.githubusercontent.com/vietdien2005/fullstack-jenkins/master/image.png)
 
-# Fullstack Jenkins
-
-Simple Docker Jenkins Image for PHP 7.0
+Simple Docker Jenkins Image for PHP 7.2
 
 ## Running
 
 Command:
 
-	docker-composer up -d
+```bash
+    docker-composer up -d
+```
 
-And go to http://localhost:8888 and login with:
+And go to `http://localhost:8888` and login with:
 
 - Username: fullstack_jenkins
 - Password: fullstack_jenkins
@@ -21,7 +23,7 @@ And go to http://localhost:8888 and login with:
 
 - Template PHP Code Coverage from <http://jenkins-php.org/index.html>
 
-## Theme Jenkins 
+## Theme Jenkins
 
 - From [jenkins-material-theme](https://github.com/afonsof/jenkins-material-theme)
 
@@ -189,10 +191,13 @@ And go to http://localhost:8888 and login with:
 - ssh-slaves
 
 ## Support
-### Get the list of plugins from an existing server:
 
-	JENKINS_HOST=username:password@host.com:port
-	curl -sSL "http://$JENKINS_HOST/pluginManager/api/xml?depth=1&xpath=/*/*/shortName|/*/*/version&wrapper=plugins" | perl -pe 's/.*?<shortName>([\w-]+).*?<version>([^<]+)()(<\/\w+>)+/\1 \2\n/g'|sed 's/ /:/'
+### Get the list of plugins from an existing server
+
+```bash
+    JENKINS_HOST=username:password@host.com:port
+    curl -sSL "http://$JENKINS_HOST/pluginManager/api/xml?depth=1&xpath=/*/*/shortName|/*/*/version&wrapper=plugins" | perl -pe 's/.*?<shortName>([\w-]+).*?<version>([^<]+)()(<\/\w+>)+/\1 \2\n/g'|sed 's/ /:/'
+```
 
 ## Donate
 
@@ -203,6 +208,6 @@ And go to http://localhost:8888 and login with:
 
 [![Donate with Litecoin](https://en.cryptobadges.io/badge/big/LKqoLFQnxjY672rKjCk1NhXiCoDLcQDtnz?showBalance=true)](https://en.cryptobadges.io/donate/LKqoLFQnxjY672rKjCk1NhXiCoDLcQDtnz)
 
-
 ## License
+
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fvietdien2005%2Ffullstack-jenkins.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fvietdien2005%2Ffullstack-jenkins?ref=badge_large)
