@@ -202,7 +202,3 @@ And go to `http://localhost:8888` and login with:
 ## License
 
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fvietdien2005%2Ffullstack-jenkins.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fvietdien2005%2Ffullstack-jenkins?ref=badge_large)
-
----
-
-[TopDev - Việc làm IT](https://topdev.vn/viec-lam-it)
